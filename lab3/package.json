@@ -1,0 +1,24 @@
+{
+  "name": "cs-546-lab8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "seed": "node ./tasks/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Siddhanth Patel 10439244",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bluebird": "^3.4.7",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "flat": "^2.0.1",
+    "handlebars": "^4.7.3",
+    "node-redis": "^0.1.7",
+    "redis": "^3.0.2"
+  }
+}

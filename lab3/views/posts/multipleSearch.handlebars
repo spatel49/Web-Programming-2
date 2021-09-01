@@ -1,0 +1,9 @@
+<h2>Search Term: {{searchTerm}}</h2>
+
+<ul>
+    {{#each postList}}
+        <li>
+            <a href="/show/{{this.show.id}}">{{this.show.name}}</a>
+        </li> 
+    {{/each}}
+</ul>
