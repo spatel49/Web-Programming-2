@@ -1,0 +1,150 @@
+@import "variables";
+@import "./src/styles/bootstrap/scss/bootstrap";
+
+/* That imports the entirety of bootstrap, taken from ../../node_modules/bootstrap/scss/bootstrap.scss
+ we can optimize it by only selectively including the modules we need:
+*/
+
+/* 
+ @import "functions";
+ @import "variables";
+ @import "mixins";
+ @import "root";
+ @import "reboot";
+ @import "type";
+ @import "images";
+ @import "code";
+ @import "grid";
+ @import "tables";
+ @import "forms";
+ @import "buttons";
+ @import "transitions";
+ @import "dropdown";
+ @import "button-group";
+ @import "input-group";
+ @import "custom-forms";
+ @import "nav";
+ @import "navbar";
+ @import "card";
+ @import "breadcrumb";
+ @import "pagination";
+ @import "badge";
+ @import "jumbotron";
+ @import "alert";
+ @import "progress";
+ @import "media";
+ @import "list-group";
+ @import "close";
+ @import "modal";
+ @import "tooltip";
+ @import "popover";
+ @import "carousel";
+ @import "utilities";
+ @import "print";
+
+ */
+
+@mixin border-bottom($size) {
+	border-bottom: $size solid rgb(236, 67, 67);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
+body,
+html {
+	background: $body-background;
+	color: darken($brand-primary, 20%);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: $primary-font-size;
+	background-clip: border-box;
+}
+
+p {
+	font-size: $secondary-font-size;
+}
+
+button {
+	background-color: black;
+	color: white;
+}
+
+  .sidebar {
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #dab3b3;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+  }
+  
+  .sidebar a {
+	display: block;
+	color: black;
+	padding: 8px;
+	text-decoration: none;
+  }
+   
+  .sidebar a.active {
+	background-color: #4de752;
+	color: rgb(211, 139, 139);
+  }
+  
+  .sidebar a:hover:not(.active) {
+	background-color: rgb(105, 76, 76);
+	color: rgb(255, 202, 202);
+  }
+  
+  div.content {
+	margin-left: 200px;
+	padding: 1px 8px;
+	height: 1000px;
+  }
+  
+  @media screen and (max-width: 992px) {
+	.sidebar {
+	  width: 100%;
+	  height: auto;
+	  position: relative;
+	}
+	.sidebar a {float: left;}
+	div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 576px) {
+	.sidebar a {
+	  text-align: center;
+	  float: none;
+	}
+  }
+
+// Bootstrap 4 breakpoints & gutter
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+$grid-gutter-width: 30px !default;
+
+// number of cards per line for each breakpoint
+$cards-per-line: (
+    xs: 1,
+    sm: 1,
+    md: 2,
+    lg: 4,
+    xl: 4
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+	@media (min-width: $breakpoint) {
+		.card-deck .card {
+			flex: 0 0 calc(#{100/map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+		}
+	}	
+}
